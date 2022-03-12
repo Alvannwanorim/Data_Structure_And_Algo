@@ -18,6 +18,7 @@ function indicesOfTargetSum(arr, target) {
 
 function indicesOfTargetSumUnsortedArray(arr, target) {
 
+
     for (let i = 0; i < arr.length; i++) {
         let first = arr[i]
         console.log(first);
@@ -31,4 +32,13 @@ function indicesOfTargetSumUnsortedArray(arr, target) {
     }
 }
 
-console.log(indicesOfTargetSumUnsortedArray([3, 4, 3, 5, 6, 2], 11));
+
+//console.log(indicesOfTargetSumUnsortedArray([3, 4, 3, 5, 6, 2], 11));
+function bet(h, t) {
+    const rt = h + t
+    rt = 9
+    console.log(rt);
+
+    // console.log(ite);
+}
+bet(45, 00);
