@@ -70,6 +70,61 @@ class DoublyLinkedList {
 		this.length--;
 		return prevHead;
 	}
+	get(index) {
+		if (index < 0 || index >= this.length) return null;
+		var count, current;
+		if (index <= this.length / 2) {
+			count = 0;
+			current = this.head;
+			while (index !== count) {
+				current = current.next;
+				count++;
+			}
+		} else if (index >= this.length / 2) {
+			count = this.length;
+			current = this.tail;
+			while (index !== count) {
+				current = current.prev;
+				count--;
+			}
+		}
+		return current;
+	}
+	insert(index, val) {
+		if (index < 0 || index > this.length) return false;
+		if (index === 0) return !!this.unshift(val);
+		if (index === this.length) return !!this.push(val);
+		var newNode = new Node(val);
+		var beforeNode = this.get(index - 1);
+		var afterNode = beforeNode.next;
+		beforeNode.next = newNode;
+		newNode.prev = beforeNode;
+		afterNode.prev = newNode;
+		newNode.next = afterNode;
+		this.length++;
+		return true;
+	}
+	set(index, val) {
+		if (index < 0 || index >= this.length) return undefined;
+		var node = this.get(index);
+		node.val = val;
+		return node;
+	}
+
+	remove(index) {
+		if (index < 0 || index >= this.length) return undefined;
+		if (index === 0) return this.shift();
+		if (index === this.length - 1) return this.pop();
+		var expiredNode = this.get(index);
+		var beforeNode = expiredNode.prev;
+		var afterNode = expiredNode.next;
+		beforeNode.next = afterNode;
+		afterNode.prev = beforeNode;
+		expiredNode.next = null;
+		expiredNode.prev = null;
+		this.length--;
+		return expiredNode;
+	}
 }
 
 const list = new DoublyLinkedList();
