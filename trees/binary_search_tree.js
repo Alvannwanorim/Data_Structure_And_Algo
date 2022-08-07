@@ -35,7 +35,6 @@ class BinarySearchTree {
 				current = current.right;
 			}
 		}
-		return this;
 	}
 	find(val) {
 		if (this.root === null) return undefined;

@@ -81,7 +81,7 @@ class singlyLinkedList {
 	}
 	set(index, val) {
 		if (index < 0 || index > this.length) return false;
-		const node = this.get(index, val);
+		const node = this.get(index);
 		if (node) {
 			node.val = val;
 			return true;
